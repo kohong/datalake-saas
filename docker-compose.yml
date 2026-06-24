@@ -79,6 +79,36 @@ services:
     networks:
       - datalake-net
 
+  # 5. JupyterLab Workspace
+  jupyter:
+    image: jupyter/pyspark-notebook:spark-3.5.0
+    container_name: jupyterlab
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - SPARK_MASTER=spark://spark-master:${SPARK_MASTER_PORT}
+    volumes:
+      - ./workspace:/home/jovyan/work
+    networks:
+      - datalake-net
+
+  # 6. Dagster (Orchestration)
+  dagster:
+    image: dagster/dagster:latest
+    container_name: dagster
+    ports:
+      - "3000:3000"
+    environment:
+      - DAGSTER_HOME=/opt/dagster/dagster_home
+    volumes:
+      - ./dagster_home:/opt/dagster/dagster_home
+      - ./dagster_workspace:/opt/dagster/app
+    working_dir: /opt/dagster/app
+    command: ["dagster", "dev", "-h", "0.0.0.0", "-p", "3000"]
+    networks:
+      - datalake-net
+
 volumes:
   minio_data:
 

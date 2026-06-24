@@ -44,11 +44,13 @@ To run this platform locally, you will need:
     *   **Spark Master UI:** `http://localhost:8080`
     *   **Spark Worker UI:** `http://localhost:8081`
     *   **Nessie API:** `http://localhost:19120/api/v2`
+    *   **JupyterLab:** `http://localhost:8888`
+    *   **Dagster UI:** `http://localhost:3000`
 
 ## 📋 Implementation Phases
 
 - [x] **Phase 1: Infrastructure Setup:** MinIO, Nessie, and Spark.
-- [ ] **Phase 2: Orchestration & Workspace:** Dagster and JupyterLab integration.
+- [x] **Phase 2: Orchestration & Workspace:** Dagster and JupyterLab integration.
 - [ ] **Phase 3: Control Plane UI:** Custom React/FastAPI frontend.
 
 ---
