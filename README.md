@@ -47,11 +47,16 @@ To run this platform locally, you will need:
     *   **JupyterLab:** `http://localhost:8888`
     *   **Dagster UI:** `http://localhost:3000`
 
+5.  **Start the Control Plane:**
+    *   **Backend:** `cd backend && pip install -r requirements.txt && uvicorn main:app --reload`
+    *   **Frontend:** `cd frontend && npm install && npm run dev`
+    *   Access the Dashboard at `http://localhost:5173`
+
 ## 📋 Implementation Phases
 
 - [x] **Phase 1: Infrastructure Setup:** MinIO, Nessie, and Spark.
 - [x] **Phase 2: Orchestration & Workspace:** Dagster and JupyterLab integration.
-- [ ] **Phase 3: Control Plane UI:** Custom React/FastAPI frontend.
+- [x] **Phase 3: Control Plane UI:** Custom React/FastAPI frontend.
 
 ---
 *Note: This README will be updated as new features and components are added to the platform.*
